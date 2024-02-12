@@ -1,1 +1,1 @@
-WIP, website to store peoples's birthdays. 
+WIP, store and track upcoming birthdays
