@@ -1,0 +1,31 @@
+/* Base styles */
+.item {
+    width: 150px;
+    height: 150px;
+    background-color: #fb7185;
+    padding: 1em;
+    font-weight: 700;
+    color: var(--clr-light);
+    text-align: center;
+    border: 10px solid var(--clr-accent);
+    border-radius: 10px;
+  }
+
+/* title */
+.h1 {
+    color: rgb(209, 209, 78);
+    font-size: 200;
+    text-align: center;
+  }
+
+/* End of base styles */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    flex-wrap: wrap;
+    align-content: center; 
+    gap: 1em;
+
+}

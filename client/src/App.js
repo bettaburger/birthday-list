@@ -20,6 +20,19 @@ function App() {
   return (
     <div className="App">
       <h1> My Birthday List </h1>
+
+      <label>Enter Person's name: </label>
+      <br></br>
+      <input id="myName"></input>
+      <button id="nameAdd">Add</button>
+
+      <br></br>
+      <br></br>
+
+      <label>Enter Birthday date ex;[00/00/00]: </label> 
+      <br></br>
+      <input id="myText"></input>
+      <button id="myAdd">Add</button>
       {(typeof backendData.names === 'undefined') ? (  // Catch no data. 
         <p>Loading...</p>
 
@@ -29,7 +42,6 @@ function App() {
           <p key ={key}>{name}</p>
         ))
       )}
-  
     </div>
   )
 }
