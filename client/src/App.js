@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="title"> My Birthday List </h1>
+      <h1> My Birthday List </h1>
       {(typeof backendData.names === 'undefined') ? (  // Catch no data. 
         <p>Loading...</p>
 
