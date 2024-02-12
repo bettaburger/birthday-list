@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import './App.css'
 
 function App() {
 
@@ -17,14 +18,14 @@ function App() {
   }, []) // Passing an array to run once. 
 
   return (
-    <div>
+    <div className="App">
       {(typeof backendData.names === 'undefined') ? ( // If no names, display loading. 
         <p>Loading...</p>
 
         // Otherwise, map name to each key p tag. 
       ): ( 
-        backendData.names.map((name, i) => (
-          <p key ={i}>{name}</p>
+        backendData.names.map((name, key) => (
+          <p key ={key}>{name}</p>
         ))
       )}
     </div>
