@@ -1,9 +1,13 @@
 const express = require('express')
 const app = express()
 
-// Setting up route, fetching Name array and displaying. 
+// Setting up route.
 app.get("/api", (request, response) => {
-    response.json({"names": ["nameOne", "nameTwo", "nameThree"] })
+    // Initialize names array. 
+    response.json({"names": ["nameOne", "nameTwo", "nameThree"] }) 
+
+    // Initalize date array.
+    response.json({"dates": ["00/00/00", "00/00/00", "00/00/00" ] })
 })
 
 // Server listening on port 5000, client running on port 3000.  

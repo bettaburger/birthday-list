@@ -19,7 +19,8 @@ function App() {
 
   return (
     <div className="App">
-      {(typeof backendData.names === 'undefined') ? ( // If no names, display loading. 
+      <h1 className="title"> My Birthday List </h1>
+      {(typeof backendData.names === 'undefined') ? (  // Catch no data. 
         <p>Loading...</p>
 
         // Otherwise, map name to each key p tag. 
@@ -28,6 +29,7 @@ function App() {
           <p key ={key}>{name}</p>
         ))
       )}
+  
     </div>
   )
 }
