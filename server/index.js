@@ -1,24 +1,14 @@
 const express = require('express')
 const app = express()
 
-let person; 
 
 // Setting up route.
 app.get("/api", (request, response) => {
-
-    // Initialize names array. 
-    response.json({"names": ["nameOne", "nameTwo", "nameThree"] }) 
-
-    // Initalize date array.
-    response.json({"dates": ["00/00/00", "00/00/00", "00/00/00"] })
-
-    document.getElementById("myAdd").onClick = function() {
-        person = document.getElementById("myText").value;
-        console.log(person);
     
-    }
-
-
+    // Initialize names array. 
+    response.json({"names": ["user"] }) 
+    // Initalize date array.
+    response.json({"dates": ["00/00/00"] })
 
 })
 

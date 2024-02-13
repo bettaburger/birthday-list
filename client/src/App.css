@@ -11,3 +11,11 @@ h1 {
   font-size: 200;
   text-align: center;
 }
+
+input {
+  color: black;
+}
+
+label {
+  color: rgb(209, 209, 78);
+}
