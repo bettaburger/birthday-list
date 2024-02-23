@@ -1,7 +1,7 @@
 import React from 'react'
 
 function Time() {
-    // Define variables.
+    // Define variables. 
   const d = new Date()
   const daysInWeek = ['Sunday,', 'Monday,', 'Tuesday,', 'Wednesday,', 'Thursday,', 'Friday,', 'Saturday,'];
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
@@ -14,7 +14,6 @@ function Time() {
 
   return (
     <div className='times'>
-        <h2>Today's date</h2>
         <div className='date'>
             <h2>{day}</h2>
             <h2>{month}</h2>
