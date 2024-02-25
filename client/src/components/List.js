@@ -4,19 +4,26 @@ import "../styles/listItem.css"
 function List() {
 
    // Define variables.
-   const [firstName, setFirstName] = useState('');
-   const [lastName, setLastName] = useState('');
-   const [date, setDate] = useState('');
-   const [birthday, setBirthday] = useState([]);
+   const [firstName, setFirstName] = useState('');      // First names
+   const [lastName, setLastName] = useState('');        // Last names
+   const [date, setDate] = useState('');                // Dates
+   const [birthday, setBirthday] = useState([]);        // Birthday array
+   const [warning, setWarning] = useState('');          // No input. 
 
    // Handle submit and prevent page default submit button refresh.
    const handleSubmit = (e) => {
-       e.preventDefault();
+        e.preventDefault();
+        if (firstName === '' || lastName === '' || date === '') {
+            setWarning('Make sure to fill all fields.');
+            return;
+        } else {
        setBirthday([...birthday, { firstName, lastName, date }])
        setFirstName('');
        setLastName('');
        setDate('');
-   }
+       setWarning('');
+        }
+    }
 
    // Creating a new array excluding the person to be deleted
    // Updates the list of birthdays. 
@@ -63,6 +70,7 @@ function List() {
                </label>
            </div>
        </form>
+       {warning && <p style={{ color: 'red' }}>{warning}</p>}
         {birthday.map((birthday, index) => (
             <div key = {index}>
             <h3> {birthday.firstName} {birthday.lastName} : {birthday.date} 
