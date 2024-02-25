@@ -26,6 +26,7 @@ function List() {
     setBirthday(updatedBirthday);
    }
 
+   // Change handlers
    const handleFirstName = (e) => {
     setFirstName(e.target.value);
    }
@@ -55,8 +56,7 @@ function List() {
                     />
                     <input
                        type="date"
-                       placeholder="Birthdate"
-                       value={firstName}
+                       value={date}
                        onChange={handleDate} 
                     />
                     <button type="submit">Add</button>
