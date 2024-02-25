@@ -1,8 +1,7 @@
 import React, { useState } from 'react'
-
+import "../styles/listItem.css"
 
 function List() {
-
 
    // Define variables.
    const [firstName, setFirstName] = useState('');
@@ -41,15 +40,15 @@ function List() {
    <div>
        <form onSubmit={handleSubmit}>
            <div>
-               <label> Birthday:
+               <label> Add a birthday!:
                    <input
-                       type="first name"
+                       type="text"
                        placeholder="First Name"
                        value={firstName}
                        onChange={handleFirstName} 
                     />
                     <input
-                       type="last name"
+                       type="text"
                        placeholder="Last Name"
                        value={lastName}
                        onChange={handleLastName} 
@@ -63,14 +62,12 @@ function List() {
                </label>
            </div>
        </form>
-       <ul>
         {birthday.map((birthday, index) => (
-            <li key = {index}>
+            <div key = {index}>
             {birthday.firstName} {birthday.lastName} : {birthday.date}
             <button onClick={() => handleDelete(index)}>Delete Birthday</button>
-        </li>
+        </div>
         ))}
-       </ul>
         {/* Displaying person's birthday input.*/}
        {/*{birthday && (
        <div>
