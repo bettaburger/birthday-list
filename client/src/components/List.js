@@ -1,69 +1,87 @@
 import React, { useState } from 'react'
 
+
 function List() {
 
-    // Define variables.
-    const [person, setPerson] = useState({
-    firstName:"",
-    lastName:"",
-    date:""
-    });
 
-    // Handle submit and prevent page default submit button refresh.
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(person);
-    }
+   // Define variables.
+   const [firstName, setFirstName] = useState('');
+   const [lastName, setLastName] = useState('');
+   const [date, setDate] = useState('');
+   const [birthday, setBirthday] = useState([]);
 
-    // Lays out the previous items and then the next item.
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setPerson({...person, [name]: value})
-    };
+   // Handle submit and prevent page default submit button refresh.
+   const handleSubmit = (e) => {
+       e.preventDefault();
+       setBirthday([...birthday, { firstName, lastName, date }])
+       setFirstName('');
+       setLastName('');
+       setDate('');
+   }
 
-  return (
-    <div>
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>First Name: 
-                    <input
-                        type="first name"
-                        name="first name"
-                        value={person.firstName}
-                        onChange={(e) => setPerson({ ...person, firstName: e.target.value })}
+   // Creating a new array excluding the person to be deleted
+   // Updates the list of birthdays. 
+   const handleDelete = (person) => {
+    const updatedBirthday = birthday.filter((_, currentPerson) => currentPerson !== person); 
+    setBirthday(updatedBirthday);
+   }
+
+   const handleFirstName = (e) => {
+    setFirstName(e.target.value);
+   }
+   const handleLastName = (e) => {
+    setLastName(e.target.value);
+   }
+   const handleDate = (e) => {
+    setDate(e.target.value);
+   }
+
+ return (
+   <div>
+       <form onSubmit={handleSubmit}>
+           <div>
+               <label> Birthday:
+                   <input
+                       type="first name"
+                       placeholder="First Name"
+                       value={firstName}
+                       onChange={handleFirstName} 
                     />
-                </label>
-            </div>
-            <div>
-                <label>Last Name: 
                     <input
-                        type="last name"
-                        name="first name"
-                        value={person.lastName}
-                        onChange={(e) => setPerson({ ...person, lastName: e.target.value })}
+                       type="last name"
+                       placeholder="Last Name"
+                       value={lastName}
+                       onChange={handleLastName} 
                     />
-                </label>
-            </div>
-            <div>
-                <label>Date: 
                     <input
-                        type="date"
-                        name="date"
-                        value={person.date}
-                        onChange={handleInputChange}
+                       type="date"
+                       placeholder="Birthdate"
+                       value={firstName}
+                       onChange={handleDate} 
                     />
-                </label>
-            </div>
-        </form>
-
+                    <button type="submit">Add</button>
+               </label>
+           </div>
+       </form>
+       <ul>
+        {birthday.map((birthday, index) => (
+            <li key = {index}>
+            {birthday.firstName} {birthday.lastName} : {birthday.date}
+            <button onClick={() => handleDelete(index)}>Delete Birthday</button>
+        </li>
+        ))}
+       </ul>
         {/* Displaying person's birthday input.*/}
-        <div>
-            <h2>Birthday List</h2>
-            <p>Name: {person.firstName} {person.lastName}</p>
-            <p>Birthdate: {person.date}</p>
-        </div>   
-    </div>
-  )
+       {/*{birthday && (
+       <div>
+           <h1>Birthday List:</h1>
+           <p>Name: {person.firstName} {person.lastName}</p>
+           <p>Birthdate: {person.date}</p>
+       </div>
+       )}*/}
+   </div>
+ )
 }
+
 
 export default List
