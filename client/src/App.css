@@ -11,12 +11,18 @@ body {
   text-align: center;
 }
 
+.List h3 {
+  color: rgb(192, 179, 108);
+  text-align: center;
+  margin: 10px 20px;
+}
+
 .date {
   display: flex;
   justify-content: center;
   text-indent: 10px;
-}
-.date h2 {
   color: rgb(228, 227, 227);
   font-size: 50;
 }
+
+

@@ -15,7 +15,7 @@ function Time() {
   return (
     <div className='times'>
         <div className='date'>
-            <h2>{day}</h2>
+            <h2>Today is {day}</h2>
             <h2>{month}</h2>
             <h2>{date}</h2>
             <h2>{year}</h2>

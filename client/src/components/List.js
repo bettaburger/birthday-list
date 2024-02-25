@@ -40,7 +40,8 @@ function List() {
    <div>
        <form onSubmit={handleSubmit}>
            <div>
-               <label> Add a birthday!:
+               <label> Track your friends or family birthdays, start by adding a person below!
+                <p></p>
                    <input
                        type="text"
                        placeholder="First Name"
@@ -58,24 +59,17 @@ function List() {
                        value={date}
                        onChange={handleDate} 
                     />
-                    <button type="submit">Add</button>
+                    <button type="add">Add</button>
                </label>
            </div>
        </form>
         {birthday.map((birthday, index) => (
             <div key = {index}>
-            {birthday.firstName} {birthday.lastName} : {birthday.date}
-            <button onClick={() => handleDelete(index)}>Delete Birthday</button>
+            <h3> {birthday.firstName} {birthday.lastName} : {birthday.date} 
+            <button type="delete" onClick={() => handleDelete(index)}></button>
+            </h3>
         </div>
         ))}
-        {/* Displaying person's birthday input.*/}
-       {/*{birthday && (
-       <div>
-           <h1>Birthday List:</h1>
-           <p>Name: {person.firstName} {person.lastName}</p>
-           <p>Birthdate: {person.date}</p>
-       </div>
-       )}*/}
    </div>
  )
 }

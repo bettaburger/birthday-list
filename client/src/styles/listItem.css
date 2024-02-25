@@ -1,12 +1,19 @@
+label {
+    color: rgb(239, 239, 237);   
+}
+
 input {
     text-align: center;
     font-size: 1rem;
 }
 
+.h3 {
+    color: white;
+}
 
 input[type=text]{
     padding: 10px 18px ;
-    margin: 8px 0;
+    margin: 8px 6px;
     border-radius: 15px;
     border: 3px solid #ccc;
     -webkit-transition: 0.5s;
@@ -16,21 +23,33 @@ input[type=text]{
 
 input[type=date] {
     padding: 10px 18px ;
-    margin: 8px 0;
+    margin: 8px 6px;
     border-radius: 15px;
     border: 3px solid #ccc;
     outline: none;
     -webkit-transition: 0.5s;
     transition: 0.5s;
+    cursor: text;
 }
 
-button[type=submit] {
+button[type=add] {
     background-color: white;
-    color: black;
     padding: 10px 18px ;
-    margin: 8px 0;
+    margin: 8px 6px;
     border-radius: 15px;
     transition-duration: 0.5s;
+    border: white;
+    cursor: pointer;    
+}
+
+button[type=delete] {
+    background: url(trash-solid-grey.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 20px 25px;
+    margin: 8px 20px;
+    border-radius: 100px;
+    transition-duration: 0.3s;
     border: white;
     cursor: pointer;    
 }
@@ -44,12 +63,16 @@ input[type=date]:focus{
     border: 3px solid #555;
 }
 
-button[type=submit]:hover{
+button[type=add]:hover{
     background-color: lightgrey;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     color: white;
 }
 
+button[type=delete]:hover{
+    background-color: rgb(164, 37, 37);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
 
 
 
