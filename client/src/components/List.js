@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Time from "../components/Time.js"
 import "../styles/listItem.css"
 
 function List() {
@@ -7,7 +8,7 @@ function List() {
    const [firstName, setFirstName] = useState('');      // First names
    const [lastName, setLastName] = useState('');        // Last names
    const [date, setDate] = useState('');                // Dates
-   const [birthday, setBirthday] = useState([]);        // Birthday array
+   const [birthday, setBirthday] = useState([]);        // Birthdays
    const [warning, setWarning] = useState('');          // No input. 
 
    // Handle submit and prevent page default submit button refresh.
@@ -17,11 +18,11 @@ function List() {
             setWarning('Make sure to fill all fields.');
             return;
         } else {
-       setBirthday([...birthday, { firstName, lastName, date }])
-       setFirstName('');
-       setLastName('');
-       setDate('');
-       setWarning('');
+            setBirthday([...birthday, { firstName, lastName, date}])
+            setFirstName('');
+            setLastName('');
+            setDate('');
+            setWarning('');
         }
     }
 
@@ -70,10 +71,11 @@ function List() {
                </label>
            </div>
        </form>
-       {warning && <p style={{ color: 'red' }}>{warning}</p>}
+        <p style={{ color: '#a42525' }}>{warning}</p>
         {birthday.map((birthday, index) => (
             <div key = {index}>
-            <h3> {birthday.firstName} {birthday.lastName} : {birthday.date} 
+            <h3> {birthday.firstName} {birthday.lastName}'s birthday is in 
+            | Birthdate: {birthday.date}
             <button type="delete" onClick={() => handleDelete(index)}></button>
             </h3>
         </div>

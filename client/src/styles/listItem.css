@@ -1,14 +1,10 @@
 label {
-    color: rgb(239, 239, 237);   
+    color: rgb(120, 119, 119);   
 }
 
 input {
     text-align: center;
     font-size: 1rem;
-}
-
-.h3 {
-    color: white;
 }
 
 input[type=text]{
