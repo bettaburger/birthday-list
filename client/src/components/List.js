@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
-import Time from "../components/Time.js"
-import "../styles/listItem.css"
+import styles from "../styles/listItem.css"
 
 function List() {
 
    // Define variables.
-   const [firstName, setFirstName] = useState('');      // First names
-   const [lastName, setLastName] = useState('');        // Last names
-   const [date, setDate] = useState('');                // Dates
-   const [birthday, setBirthday] = useState([]);        // Birthdays
+   const [firstName, setFirstName] = useState('');      // First names.
+   const [lastName, setLastName] = useState('');        // Last names.
+   const [date, setDate] = useState('');                // Dates.
+   const [birthday, setBirthday] = useState([]);        // Birthdays.
    const [warning, setWarning] = useState('');          // No input. 
+
 
    // Handle submit and prevent page default submit button refresh.
    const handleSubmit = (e) => {
@@ -18,7 +18,7 @@ function List() {
             setWarning('Make sure to fill all fields.');
             return;
         } else {
-            setBirthday([...birthday, { firstName, lastName, date}])
+            setBirthday([...birthday, { firstName, lastName, date }]);
             setFirstName('');
             setLastName('');
             setDate('');
@@ -74,9 +74,11 @@ function List() {
         <p style={{ color: '#a42525' }}>{warning}</p>
         {birthday.map((birthday, index) => (
             <div key = {index}>
-            <h3> {birthday.firstName} {birthday.lastName}'s birthday is in 
-            | Birthdate: {birthday.date}
-            <button type="delete" onClick={() => handleDelete(index)}></button>
+            <h3> {birthday.firstName} {birthday.lastName}'s birthday is on {birthday.date}
+            <span>
+            <button className={styles.deleteButton}
+             type="delete" onClick={() => handleDelete(index)}></button>
+            </span>
             </h3>
         </div>
         ))}

@@ -42,8 +42,7 @@ button[type=delete] {
     background: url(trash-solid-grey.svg);
     background-position: center;
     background-repeat: no-repeat;
-    padding: 20px 10px;
-    margin: 8px 40px;
+    padding: 10px 10px;
     border-radius: 100px;
     transition-duration: 0.3s;
     border: white;
@@ -51,9 +50,11 @@ button[type=delete] {
     width: 40px;
     height: 40px;
     border-radius: 39px;
+    float: right;
+    margin-top: -5px;
 }
 
-/* Animation */
+/* Hoever Animation */
 input[type=text]:focus{
     border: 3px solid #555;
 }

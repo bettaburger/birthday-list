@@ -13,16 +13,19 @@ body {
 
 .item h3 {
   color: rgb(192, 179, 108);
-  background-color: rgb(33, 33, 33);
-  border-radius: 30px;
-  padding: 10px 30px;
-  margin: 10px;
+  background-color: rgb(42, 41, 41);
+  border-radius: 25px;
+  width: 600px;
+  padding: 20px 30px;
+  margin: 0px auto; /* allign list items at the center */
+  margin-bottom: 10px;
   transition: 0.4s;
+  text-align: left;
 }
 
 h3:hover{
-  background-color: rgb(79, 79, 79);
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  background-color: rgb(28, 28, 28);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 8px 0px;
   color: rgb(224, 224, 224);
 }
 
