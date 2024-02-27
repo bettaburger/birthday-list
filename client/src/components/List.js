@@ -1,15 +1,26 @@
 import React, { useState } from 'react'
 import styles from "../styles/listItem.css"
+import axios from 'axios'
 
 function List() {
 
    // Define variables.
-   const [firstName, setFirstName] = useState('');      // First names.
-   const [lastName, setLastName] = useState('');        // Last names.
-   const [date, setDate] = useState('');                // Dates.
-   const [birthday, setBirthday] = useState([]);        // Birthdays.
-   const [warning, setWarning] = useState('');          // No input. 
+    const [firstName, setFirstName] = useState('');      // First names.
+    const [lastName, setLastName] = useState('');        // Last names.
+    const [date, setDate] = useState('');                // Dates.
+    const [birthday, setBirthday] = useState([]);        // Birthdays.
+    const [warning, setWarning] = useState('');          // No input warning.
+    const [add, setAdd] = useState('');                  // Birthday has been added. 
 
+    const axiosPostData = async() => {
+        const postData = {
+            firstName: firstName,
+            lastName: lastName,
+            date: date
+        } 
+        await axios.post('http://localhost:5000/handler', postData)
+        .then(response => setAdd(<p style={{ color: '#A6C28B' }}>{response.data}</p>))   
+    }
 
    // Handle submit and prevent page default submit button refresh.
    const handleSubmit = (e) => {
@@ -23,7 +34,10 @@ function List() {
             setLastName('');
             setDate('');
             setWarning('');
+            setAdd('');
         }
+        setAdd('');
+        axiosPostData();
     }
 
    // Creating a new array excluding the person to be deleted
@@ -71,11 +85,15 @@ function List() {
                </label>
            </div>
        </form>
+
         <p style={{ color: '#a42525' }}>{warning}</p>
+        <p>{add}</p>
+
         {birthday.map((birthday, index) => (
             <div key = {index}>
-            <h3> {birthday.firstName} {birthday.lastName}'s birthday is on {birthday.date}
-            <span>
+            <h3> {birthday.firstName} {birthday.lastName}'s birthday is on 
+            <span style ={{color: '#CBA52F'}}>
+            &nbsp;{birthday.date}
             <button className={styles.deleteButton}
              type="delete" onClick={() => handleDelete(index)}></button>
             </span>
