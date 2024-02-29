@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styles from "../styles/listItem.css"
+import useLocalStorage from '../Hook/useLocalStorage'
 import axios from 'axios'
-import useLocalStorage from '../Hook/useLocalStorage';
 
 function List() {
 
@@ -14,18 +14,18 @@ function List() {
     const [add, setAdd] = useState('');                  // Birthday has been added. 
     const [persistedBirthdays, setPersistedBirthdays] = useLocalStorage('birthday', []);
     
-    // Update persistedBirthdays state when localStorage changes.
+    // Update the birthday states when localStorage changes.
     useEffect(() => {
         setPersistedBirthdays(birthday);
     }, [birthday, setPersistedBirthdays]);
 
-    // Load birthdays from localStorage when component mounts.
+    // Get birthdays from localStorage.
+    // Make sure that there are birthdays in the array. 
     useEffect(() => {
-        if (persistedBirthdays && persistedBirthdays.length > 0) {
+        if (persistedBirthdays.length > 0) {
             setBirthday(persistedBirthdays);
         }
     }, [persistedBirthdays]);
-
 
     const axiosPostData = async() => {
         const postData = {
