@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styles from "../styles/listItem.css"
 import axios from 'axios'
+import useLocalStorage from '../Hook/useLocalStorage';
 
 function List() {
 
@@ -11,14 +12,20 @@ function List() {
     const [birthday, setBirthday] = useState([]);        // Birthday items.
     const [warning, setWarning] = useState('');          // No input warning.
     const [add, setAdd] = useState('');                  // Birthday has been added. 
-
+    const [persistedBirthdays, setPersistedBirthdays] = useLocalStorage('birthday', []);
+    
+    // Update persistedBirthdays state when localStorage changes.
     useEffect(() => {
-        setBirthday(JSON.parse(window.localStorage.getItem('birthday')));
-    }, [])
+        setPersistedBirthdays(birthday);
+    }, [birthday, setPersistedBirthdays]);
 
+    // Load birthdays from localStorage when component mounts.
     useEffect(() => {
-        window.localStorage.setItem('birthday', JSON.stringify(birthday))
-    },[birthday])
+        if (persistedBirthdays && persistedBirthdays.length > 0) {
+            setBirthday(persistedBirthdays);
+        }
+    }, [persistedBirthdays]);
+
 
     const axiosPostData = async() => {
         const postData = {
@@ -70,7 +77,7 @@ function List() {
     return (   
     <div>
         <form onSubmit={handleSubmit}>
-            <div>
+            <div> 
                 <input
                     type="text"
                     placeholder="First Name"
@@ -88,7 +95,7 @@ function List() {
                     value={date}
                     onChange={handleDate} 
                     />
-                    <button type="add">Add</button>
+                <button type="add">Add</button>
             </div>
         </form>
 
