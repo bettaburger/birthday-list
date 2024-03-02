@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/birthday-list/static/css/main.f863c52a.css",
+    "main.js": "/birthday-list/static/js/main.94f1a37a.js",
+    "index.html": "/birthday-list/index.html",
+    "static/media/trash-solid-grey.svg": "/birthday-list/static/media/trash-solid-grey.720bc4f16fb12daeacfb.svg",
+    "main.f863c52a.css.map": "/birthday-list/static/css/main.f863c52a.css.map",
+    "main.94f1a37a.js.map": "/birthday-list/static/js/main.94f1a37a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f863c52a.css",
+    "static/js/main.94f1a37a.js"
+  ]
+}
