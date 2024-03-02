@@ -1,7 +1,7 @@
 const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
-const router = require('./routes/handler.js')
+const router = require('../routes/handler.js')
 
 const app = express()
 app.use(bodyParser.urlencoded({extended:false}));
